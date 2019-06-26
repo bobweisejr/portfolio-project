@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
-{% load staticfiles %}
 <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Robert Weise Jr Portfolio</title>
+    <title>{{ blog.title }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -31,6 +31,9 @@
         }
       }
 
+
+
+
     </style>
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
@@ -47,57 +50,40 @@
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="http://twitter.com/robertweisejr">Twitter</a>
                 <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-                <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+                <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
 
             </div>
         </div>
     </nav>
 </header>
 
+
 <main role="main">
 
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1 class="jumbotron-heading">Robert Weise Jr</h1>
-            <p class="lead text-muted">Hey my name is Bob Weise Jr and I love making Django Websites.  Solving
-                the world's problems!</p>
-            <p>
+    <div class="container">
+    <h1 class="text-center pt-3">{{ blog.title }}</h1>
 
-                <a href="mailto:robert.weise@spartannash.com" class="btn btn-secondary my-2">Email Me</a>
-            </p>
-            <img src="{% static 'bob.jpg' %}" height="300"/>
-        </div>
-    </section>
 
-    <div class="album py-5 bg-light">
-        <div class="container">
+    <p class="text-center">{{ blog.pub_date }}</p>
 
-            <div class="row">
+    <img class="img-fluid text-center pt-3" src="{{ blog.image.url }}" height="500" width="500" />
+    <br />
+    <br />
+    <p>{{ blog.body }}</p>
 
-                {% for job in jobs.all %}
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top" src="{{ job.image.url }}"/>
 
-                        <div class="card-body">
-                            <p class="card-text">{{ job.summary }}</p>
-
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-
-            </div>
-        </div>
     </div>
+
 
 </main>
 
+
 <footer class="text-muted">
     <div class="container text-center">
-       <p>© Robert Weise Jr {% now "Y" %}</p>
+        <p>© Robert Weise Jr {% now "Y" %}</p>
     </div>
 </footer>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

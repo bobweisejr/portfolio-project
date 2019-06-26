@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
-{% load staticfiles %}
 <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Robert Weise Jr Portfolio</title>
+    <title>Robert's Blog</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -31,6 +31,9 @@
         }
       }
 
+
+
+
     </style>
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
@@ -47,57 +50,42 @@
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="http://twitter.com/robertweisejr">Twitter</a>
                 <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-                <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+                <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
 
             </div>
         </div>
     </nav>
 </header>
 
+
 <main role="main">
-
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1 class="jumbotron-heading">Robert Weise Jr</h1>
-            <p class="lead text-muted">Hey my name is Bob Weise Jr and I love making Django Websites.  Solving
-                the world's problems!</p>
-            <p>
-
-                <a href="mailto:robert.weise@spartannash.com" class="btn btn-secondary my-2">Email Me</a>
-            </p>
-            <img src="{% static 'bob.jpg' %}" height="300"/>
-        </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-        <div class="container">
-
-            <div class="row">
-
-                {% for job in jobs.all %}
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top" src="{{ job.image.url }}"/>
-
-                        <div class="card-body">
-                            <p class="card-text">{{ job.summary }}</p>
-
-                        </div>
-                    </div>
+    <h1 class="text-center pt-3">Welcome to Bob's Blog</h1>
+    <div class="container">
+        <h2 class="text-left pl-3">Latest Posts</h2>
+        {% for blog in blogs.all %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="{{ blog.image.url }}"/>
+                <div class="card-body">
+                    <a href=" {% url 'detail' blog.id %}"><p class="card-text">{{ blog.title }}</p><a/>
+                        <p>{{ blog.pub_date_pretty }}</p>
+                    <p>{{ blog.summary }} </p>
                 </div>
-                {% endfor %}
-
             </div>
         </div>
-    </div>
-
+        <br/>
+        <br/>
+        {% endfor %}
+    <div/>
 </main>
+
 
 <footer class="text-muted">
     <div class="container text-center">
-       <p>© Robert Weise Jr {% now "Y" %}</p>
+        <p>© Robert Weise Jr {% now "Y" %}</p>
     </div>
 </footer>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
