@@ -1,4 +1,4 @@
-"""portfolio URL Configuration
+"""wordcount URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -14,16 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
-import jobs.views
-
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', jobs.views.home1, name='home1'),
-    path('blog/', include('blog.urls')),
-    path('wordcount', include('wordcount.urls'))
-
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # path('admin/', admin.site.urls),
+    path('home2/', views.home2, name='home2'),
+    path('count/', views.count, name='count'),
+    path('hex/', views.hex, name='hex'),
+    path('about/', views.about, name='about'),
+    path('capk/', views.capk, name='capk'),
+    path('capk_calculated/', views.capk_calculated, name='capk_calculated'),
+    # path('', views.home2, name='home2')
+]
