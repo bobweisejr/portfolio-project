@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WORD COUNT</title>
+    <title>HEX Breakdown</title>
 
 </head>
 <body>
 <a href="{% url 'about' %}">About</a>
-  <h1>WORD COUNT</h1>
+  <h1>Hex to Bytes Conversion Utility</h1>
         <form action="{% url 'hex' %}">
-            <textarea cols="10" rows="1" name="hex"></textarea>
+            <textarea cols="20" rows="1" name="hex"></textarea>
             <br/>
-            <input type="submit" value="Convert Hex to Binary" />
+            <input type="submit" value="Convert Hex to Binary and shit" />
         </form>
-<a href="{% url 'capk' %}">CAPK</a>
+<br/>
+<a href="{% url 'capk' %}">CAPK utility</a>
 </body>
 </html>
