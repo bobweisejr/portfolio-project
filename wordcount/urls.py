@@ -19,11 +19,14 @@ from . import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('home2/', views.home2, name='home2'),
-    path('count/', views.count, name='count'),
-    path('hex/', views.hex, name='hex'),
-    path('about/', views.about, name='about'),
-    path('capk/', views.capk, name='capk'),
-    path('capk_calculated/', views.capk_calculated, name='capk_calculated'),
+    path('/home2/', views.home2, name='home2'),
+    path('/count/', views.count, name='count'),
+    path('/hex/', views.hex, name='hex'),
+    path('/hex_calculated/', views.hex_calculated, name='hex_calculated'),
+    path('/about/', views.about, name='about'),
+    path('/capk/', views.capk, name='capk'),
+    path('/capk_calculated/', views.capk_calculated, name='capk_calculated'),
+    path('/hex_reverse/', views.hex_reverse, name='hex_reverse'),
+    path('/hex_reverse_calculated/', views.hex_reverse_calculated, name='hex_reverse_calculated'),
     # path('', views.home2, name='home2')
 ]

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% extends 'jobs/base.html' %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+<link href="{% static 'wordcount/StyleSheet.css' %}" rel="stylesheet" type="text/css">
+<html lang="en">
+<!--removed this heading as the extended base already has a link to home-->
+<!--<head>
+    <meta charset="UTF-8">
+    <a href="{% url 'home1' %}">Return Home</a>
+    <title>CAPK</title>
+</head>-->
+<body>
+        <div class="row pt-2">
+            <div class="col-1">
+                <h1 align="bottom">Byte1</h1>
+            </div>
+        </div>
+
+        <div class="col-10">
+            <form action="{% url 'hex_reverse_calculated' %}">
+
+
+                Bit 1:  <input type="text" name="Byte1Bit1" value="" size="1" maxlength="1"/>
+                Bit 2:  <input type="text" name="Byte1Bit2" value="" size="1" maxlength="1"/>
+                Bit 3:  <input type="text" name="Byte1Bit3" value="" size="1" maxlength="1"/>
+                Bit 4:  <input type="text" name="Byte1Bit4" value="" size="1" maxlength="1"/>
+                Bit 5:  <input type="text" name="Byte1Bit5" value="" size="1" maxlength="1"/>
+                Bit 6:  <input type="text" name="Byte1Bit6" value="" size="1" maxlength="1"/>
+                Bit 7:  <input type="text" name="Byte1Bit7" value="" size="1" maxlength="1"/>
+                Bit 8:  <input type="text" name="Byte1Bit8" value="" size="1" maxlength="1"/>
+
+
+                 <input type="submit" value="Calculate!" />
+            </form>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-1">
+                <h1 align="bottom">Byte2</h1>
+            </div>
+        </div>
+
+        <div class="col-10">
+            <form action="{% url 'hex_reverse_calculated' %}">
+
+
+                Bit 1:  <input type="text" name="Byte2Bit1" value="" size="1" maxlength="1"/>
+                Bit 2:  <input type="text" name="Byte2Bit2" value="" size="1" maxlength="1"/>
+                Bit 3:  <input type="text" name="Byte2Bit3" value="" size="1" maxlength="1"/>
+                Bit 4:  <input type="text" name="Byte2Bit4" value="" size="1" maxlength="1"/>
+                Bit 5:  <input type="text" name="Byte2Bit5" value="" size="1" maxlength="1"/>
+                Bit 6:  <input type="text" name="Byte2Bit6" value="" size="1" maxlength="1"/>
+                Bit 7:  <input type="text" name="Byte2Bit7" value="" size="1" maxlength="1"/>
+                Bit 8:  <input type="text" name="Byte2Bit8" value="" size="1" maxlength="1"/>
+
+
+                 <input type="submit" value="Calculate!" />
+            </form>
+        </div>
+
+</body>
+<br/>
+{% endblock %}
+</html>

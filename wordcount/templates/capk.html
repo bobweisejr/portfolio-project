@@ -1,21 +1,36 @@
 <!DOCTYPE html>
+{% extends 'jobs/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
 <html lang="en">
-<head>
+<!--removed this heading as the extended base already has a link to home-->
+<!--<head>
     <meta charset="UTF-8">
     <a href="{% url 'home1' %}">Return Home</a>
     <title>CAPK</title>
-</head>
+</head>-->
 <body>
 <h1>CAPK Input</h1>
 
 
     <form action="{% url 'capk_calculated' %}">
-         <p>RID List:  <textarea cols="10" rows="1" name="rid_text">A000000025</textarea></p>
-         <p>RID Index:  <textarea cols="2" rows="1" name="index_text"></textarea></p>
-         <p>RID Expires:  <textarea cols="10" rows="1" name="expires_text">311220</textarea></p>
-         <p>Exponent:  <textarea cols="5" rows="1" name="exponent_text">03</textarea></p>
+         RID List:  <input type="text" name="rid_text" value="A000000025" size="10" maxlength="10"/>
+        <br/>
+        <!--<p>RID List:  <textarea cols="2" rows="1" name="rid_text">A0002</textarea></p>-->
+        <br/>
+         RID Index:  <input type="text" name="index_text" value="" size="4" maxlength="3"/>
+        <br/>
+        <br/>
+        RID Expires:  <input type="text" name="expires_text" value="311220" size="6" maxlength="6"/>
+        <br/>
+        <br/>
+        Exponent:  <input type="text" name="exponent_text" value="03" size="2" maxlength="2">
+        <br/>
+        <br/>
          <h3>Hash Value (SHA1):</h3>
          <textarea cols="50" rows="1" name="key_text"></textarea>
+        <br/>
          <h3>Full Modulus Value:</h3>
          <textarea cols="60" rows="8" name="full_modulus_text"></textarea>
 
@@ -25,4 +40,6 @@
 
 
 </body>
+
+{% endblock %}
 </html>

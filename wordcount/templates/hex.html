@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'jobs/base.html' %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>HEX Breakdown</title>
+
+</head>
+<body>
+<!--<a href="{% url 'about' %}">About</a>-->
+  <h1>Hex to Bytes</h1>
+        <form action="{% url 'hex_calculated' %}">
+            Hex Value: <input maxlength="10" size="10" name="hex">
+            <br/>
+        <br/>
+            <!--<input type="submit" value="Convert Hex to Binary" />-->
+            <button class="button1 btn btn-primary btn-sm pt-2" >
+               Convert Hex to Binary
+            </button>
+        </form>
+<br/>
+<!--<a href="{% url 'capk' %}">CAPK utility</a>-->
+</body>
+{% endblock %}
+</html>

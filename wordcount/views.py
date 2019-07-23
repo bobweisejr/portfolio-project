@@ -3,11 +3,17 @@ from django.shortcuts import render
 import operator
 import re
 import datetime as d
+
+
 # from wordcount.hex_key import *
 
 
+def hex(request):
+    return render(request, 'hex.html')
+
+
 def home2(request):
-    return render(request, 'home2.html')
+    return render(request, 'hex.html')
 
 
 def count(request):
@@ -79,7 +85,7 @@ def capk_calculated(request):
                    'mod7': mod7, 'mod8': mod8, 'rid_text': rid_text})
 
 
-def hex(request):
+def hex2(request):
     hex_text = request.GET['hex']
     hex_value = hex_text.strip()
     # hex = hex.strip()
@@ -117,3 +123,51 @@ def hex(request):
     return render(request, 'hex_calc.html', {'hex': hex, 'hex_value': hex_value,
                                              # 'hexkeys': hexkeys,
                                              'byte': byte, 'binary_list': binary_list, 'display_list': display_list})
+
+
+def hex_calculated(request):
+    hex_text = request.GET['hex']
+    hex_value = hex_text.strip()
+    # hex = hex.strip()
+
+    scale = 16
+
+    """Define Hex Keys"""
+    hexkeys = {'0': '0000', '1': '0001', '2': '0010'}
+
+    num_of_bits = 8
+
+    binary = bin(int('1' + hex_value, scale))[3:].zfill(num_of_bits)
+
+    binary_list = [binary[i:i + num_of_bits] for i in range(0, len(binary), num_of_bits)]
+
+    byte = 1
+
+    display_list = []
+    for bytes in binary_list:
+        half1 = bytes[4:]
+        half2 = bytes[0:4]
+        byte_header = "Byte #" + str(byte) + " = " + half1[::-1] + " " + half2[::-1]
+        display_list.append(byte_header)
+        display_list.append("Byte " + str(byte) + " Bit #1 = " + bytes[7:])
+        display_list.append("Byte " + str(byte) + " Bit #2 = " + bytes[6:7])
+        display_list.append("Byte " + str(byte) + " Bit #3 = " + bytes[5:6])
+        display_list.append("Byte " + str(byte) + " Bit #4 = " + bytes[4:5])
+        display_list.append("Byte " + str(byte) + " Bit #5 = " + bytes[3:4])
+        display_list.append("Byte " + str(byte) + " Bit #6 = " + bytes[2:3])
+        display_list.append("Byte " + str(byte) + " Bit #7 = " + bytes[1:2])
+        display_list.append("Byte " + str(byte) + " Bit #8 = " + bytes[0:1])
+        display_list.append("")
+        byte += 1
+
+    return render(request, 'hex_calc.html', {'hex': hex, 'hex_value': hex_value,
+                                             # 'hexkeys': hexkeys,
+                                             'byte': byte, 'binary_list': binary_list, 'display_list': display_list})
+
+
+def hex_reverse(request):
+    return render(request, 'hex_reverse.html')
+
+
+def hex_reverse_calculated(request):
+    return render(request, 'hex_reverse_calculated.html')
