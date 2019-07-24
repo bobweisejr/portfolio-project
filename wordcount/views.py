@@ -271,10 +271,14 @@ def hex_reverse_calculated(request):
     BytesList = [Byte1Hex, Byte2Hex, Byte3Hex, Byte4Hex, Byte5Hex, Byte6Hex, Byte7Hex, Byte8Hex]
     BytesCombined = " ".join(BytesList)
 
-    return render(request, 'hex_reverse_calculated.html', {'Byte1Half1': Byte1Half1, 'Byte2Half2': Byte2Half2,
-                                                           'Byte3Half2': Byte3Half2, 'Byte4Half2': Byte4Half2,
-                                                           'Byte5Half2': Byte5Half2, 'Byte6Half2': Byte6Half2,
-                                                           'Byte7Half2': Byte7Half2, 'Byte8Half2': Byte8Half2,
+    return render(request, 'hex_reverse_calculated.html', {'Byte1Half1': Byte1Half1, 'Byte1Half2': Byte1Half2,
+                                                           'Byte2Half1': Byte2Half1, 'Byte2Half2': Byte2Half2,
+                                                           'Byte3Half1': Byte3Half1, 'Byte3Half2': Byte3Half2,
+                                                           'Byte4Half1': Byte4Half1, 'Byte4Half2': Byte4Half2,
+                                                           'Byte5Half1': Byte5Half1, 'Byte5Half2': Byte5Half2,
+                                                           'Byte6Half1': Byte6Half1, 'Byte6Half2': Byte6Half2,
+                                                           'Byte7Half1': Byte7Half1, 'Byte7Half2': Byte7Half2,
+                                                           'Byte8Half1': Byte8Half1, 'Byte8Half2': Byte8Half2,
                                                            'Byte1Hex': Byte1Hex, 'Byte2Hex': Byte2Hex,
                                                            'Byte3Hex': Byte3Hex, 'Byte4Hex': Byte4Hex,
                                                            'Byte5Hex': Byte5Hex, 'Byte6Hex': Byte6Hex,
