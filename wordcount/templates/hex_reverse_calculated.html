@@ -2,9 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>hex reverse calc</title>
+    <title>Hex Breakdown</title>
 </head>
 <body>
-<h1>calculate reverse hex here</h1>
+{% extends 'jobs/base.html' %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+<a href="{% url 'hex_reverse' %}">Start Again</a>
+
+<br/>
+
+<h1><span style="color:blue; font-size:150%;">Hex Value Combined</span></h1>
+<div>
+    {{ BytesCombined }}
+</div>
+
+<h1><span style="color:blue; font-size:150%;">Bit Input</span> (in order 1-8)</h1>
+<div>
+    Byte1: {{ Byte1Half1 }} {{ Byte1Half2 }}<br/>
+    Byte2: {{ Byte2Half1 }} {{ Byte2Half2 }}<br/>
+    Byte3: {{ Byte3Half1 }} {{ Byte3Half2 }}<br/>
+    Byte4: {{ Byte4Half1 }} {{ Byte4Half2 }}<br/>
+    Byte5: {{ Byte5Half1 }} {{ Byte5Half2 }}<br/>
+    Byte6: {{ Byte6Half1 }} {{ Byte6Half2 }}<br/>
+    Byte7: {{ Byte7Half1 }} {{ Byte7Half2 }}<br/>
+    Byte8: {{ Byte8Half1 }} {{ Byte8Half2 }}<br/>
+
+
+</div>
+
+
+<!--{{ hex_key }}
+{{ hex_value }}
+{{ hex_keys }}-->
+<br/>
+<h1><span style="color:blue; font-size:150%;">Hex Values</span></h1>
+<!--{% for binary in display_list %}
+    {{ binary }}
+    <br/>
+{% endfor %}-->
+Byte1 Hex Value: {{ Byte1Hex }}<br/>
+Byte2 Hex Value: {{ Byte2Hex }}<br/>
+Byte3 Hex Value: {{ Byte3Hex }}<br/>
+Byte4 Hex Value: {{ Byte4Hex }}<br/>
+Byte5 Hex Value: {{ Byte5Hex }}<br/>
+Byte6 Hex Value: {{ Byte6Hex }}<br/>
+Byte7 Hex Value: {{ Byte7Hex }}<br/>
+Byte8 Hex Value: {{ Byte8Hex }}<br/>
+
+
+<br/>
+
 </body>
+{% endblock %}
 </html>
