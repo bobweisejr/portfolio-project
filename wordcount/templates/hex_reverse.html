@@ -3,6 +3,17 @@
 {% load staticfiles %}
 {% load static %}
 {% block content %}
+
+<script src="{% static 'wordcount/new.js' %}"></script>
+<!-- only noobs put their javascript within the html as shown below.. we are using an external file above :)  -->
+<!--<script src="new.js"></script>-->
+<!--<script>
+    function myInputFunction() {
+    if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);
+
+    }
+</script>-->
+
 <link href="{% static 'wordcount/StyleSheet.css' %}" rel="stylesheet" type="text/css">
 <html lang="en">
 <!--removed this heading as the extended base already has a link to home-->
@@ -17,15 +28,17 @@
         <div class="col-10 pt-3">
             <form action="{% url 'hex_reverse_calculated' %}">
 
+                <!--Testing: <input type="number" id="subEmail" value="" onchange="checkFilled();"/><br/>-->
+
                 <span style="color:blue; font-size:150%;">Byte1  </span>
-                Bit 1:  <input type="text" name="Byte1Bit1" value="" size="1" maxlength="1" pattern="[0-1]"/>
-                Bit 2:  <input type="text" name="Byte1Bit2" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 3:  <input type="text" name="Byte1Bit3" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 4:  <input type="text" name="Byte1Bit4" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 5:  <input type="text" name="Byte1Bit5" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 6:  <input type="text" name="Byte1Bit6" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 7:  <input type="text" name="Byte1Bit7" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 8:  <input type="text" name="Byte1Bit8" value="" size="1" maxlength="1" min="0" max="1"/>
+                Bit 1:  <input name="Byte1Bit1" class="bit" oninput="checkInput(this);" onchange="checkFilled2(this);" type="number" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 2:  <input name="Byte1Bit2" class="bit" oninput="checkInput(this);" onchange="checkFilled2(this);" type="number" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 3:  <input name="Byte1Bit3" class="bit" oninput="checkInput(this);" onchange="checkFilled2(this);" type="number" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 4:  <input name="Byte1Bit4" class="bit" oninput="checkInput(this);" onchange="checkFilled2(this);" type="number" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 5:  <input name="Byte1Bit5" class="bit" oninput="checkInput(this);" onchange="checkFilled2(this);" type="number" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 6:  <input name="Byte1Bit6" class="bit" oninput="checkInput(this);" onchange="checkFilled2(this);" type="number" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 7:  <input name="Byte1Bit7" class="bit" oninput="checkInput(this);" onchange="checkFilled2(this);" type="number" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 8:  <input name="Byte1Bit8" class="bit" oninput="checkInput(this);" onchange="checkFilled2(this);" type="number" value="0" size="1" maxlength="1" min="0" max="1"/>
 
                 <br/>
                 <br/>
@@ -90,26 +103,30 @@
                 <br/>
                 <br/>
                 <span style="color:blue; font-size:150%;">Byte7   </span>
-                Bit 1:  <input type="text" name="Byte7Bit1" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 2:  <input type="text" name="Byte7Bit2" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 3:  <input type="text" name="Byte7Bit3" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 4:  <input type="text" name="Byte7Bit4" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 5:  <input type="text" name="Byte7Bit5" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 6:  <input type="text" name="Byte7Bit6" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 7:  <input type="text" name="Byte7Bit7" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 8:  <input type="text" name="Byte7Bit8" value="" size="1" maxlength="1" min="0" max="1"/>
+                Bit 1:  <input type="number" name="Byte7Bit1" value="0" size="1" min="0" max="1" style="width: 3em"/>
+                Bit 2:  <input type="text" pattern="\d*" name="Byte7Bit2" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 3:  <input name="Byte7Bit3"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            type = "number"
+                             maxlength = "1" min="0" max="1"
+                        />
+                Bit 4:  <input type="text" name="Byte7Bit4" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 5:  <input type="text" name="Byte7Bit5" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 6:  <input type="text" name="Byte7Bit6" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 7:  <input type="text" name="Byte7Bit7" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 8:  <input type="text" name="Byte7Bit8" value="0" size="1" maxlength="1" min="0" max="1"/>
 
                   <br/>
                 <br/>
                 <span style="color:blue; font-size:150%;">Byte8   </span>
-                Bit 1:  <input type="text" name="Byte8Bit1" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 2:  <input type="text" name="Byte8Bit2" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 3:  <input type="text" name="Byte8Bit3" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 4:  <input type="text" name="Byte8Bit4" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 5:  <input type="text" name="Byte8Bit5" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 6:  <input type="text" name="Byte8Bit6" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 7:  <input type="text" name="Byte8Bit7" value="" size="1" maxlength="1" min="0" max="1"/>
-                Bit 8:  <input type="text" name="Byte8Bit8" value="" size="1" maxlength="1" min="0" max="1"/>
+                Bit 1:  <input type="text" name="Byte8Bit1" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 2:  <input type="text" name="Byte8Bit2" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 3:  <input type="text" name="Byte8Bit3" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 4:  <input type="text" name="Byte8Bit4" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 5:  <input type="text" name="Byte8Bit5" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 6:  <input type="text" name="Byte8Bit6" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 7:  <input type="text" name="Byte8Bit7" value="0" size="1" maxlength="1" min="0" max="1"/>
+                Bit 8:  <input type="text" name="Byte8Bit8" value="0" size="1" maxlength="1" min="0" max="1"/>
 
                 <br/>
                 <br/>

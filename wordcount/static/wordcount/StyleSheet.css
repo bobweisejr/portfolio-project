@@ -1,11 +1,15 @@
 h1 {
         text-align: left;
         font-size: 15pt;
-        color: #000099;
+        color: red;
         margin-bottom: 5px;
 
     }
 
-input {
+input.bit {
     text-align: center;
+    color: white;
+    width: 2.5em;
+    background-color: blue;
 }
+
